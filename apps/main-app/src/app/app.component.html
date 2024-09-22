@@ -1,3 +1,5 @@
-@let joke = joke$ | async;
+<label>First Name:</label>
+<input [formControl]="firstNameControl">
 
-{{joke?.value}}
+
+<app-child-component [firstName]="firstNameControl.value" [age]="18" lastName="noris" (firstNameOutput)="firstNameOutput($event)"/>
