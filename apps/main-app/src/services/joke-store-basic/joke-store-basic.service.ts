@@ -31,15 +31,11 @@ export class JokeStoreBasicService {
   error = computed(() => this.state().error);
   loading = computed(() => this.state().loading);
 
-  private patch(partialState: Partial<State>) {
-    this.state.update((s) => ({
-      ...s,
-      ...partialState
-    }));
-  }
-
   loadJoke() {
-    this.patch({ loading: true });
+    this.state.update((s) => ({
+     ...s,
+      loading: true
+    }));
     this.jokeService
       .getJoke()
       .pipe(
