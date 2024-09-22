@@ -1,0 +1,10 @@
+{
+  "name": "man-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/man-app-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["man-app"],
+  "// targets": "to see all targets run: nx show project man-app-e2e --web",
+  "targets": {}
+}
