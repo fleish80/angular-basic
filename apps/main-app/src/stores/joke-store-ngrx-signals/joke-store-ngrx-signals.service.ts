@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from '@ngrx/signals';
-import { computed, inject } from '@angular/core';
+import { patchState, signalStore, withHooks, withMethods, withState } from '@ngrx/signals';
+import { inject } from '@angular/core';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -20,9 +20,6 @@ export const JokeStoreNgrxSignalsStore = signalStore({ providedIn: 'root' },
     error: null,
     loading: false,
   }),
-  withComputed((store) => ({
-    initLetters: computed(() => store.joke()?.value.split(' ').map(word => word[0]))
-  })),
   withMethods((store, jokeService = inject(JokeService)) => ({
     load: rxMethod<void>(
       pipe(
