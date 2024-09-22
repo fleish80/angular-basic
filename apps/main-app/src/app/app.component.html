@@ -1,3 +1,6 @@
 @let joke = joke$ | async;
 
-{{joke?.value}}
+<p>{{joke?.value}}</p>
+
+<button (click)="loadAnotherJoke()">Load Another Joke</button>
+
