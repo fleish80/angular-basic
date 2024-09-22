@@ -1,28 +1,28 @@
 {
-  "name": "man-app",
+  "name": "main-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/man-app/src",
+  "sourceRoot": "apps/main-app/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/man-app",
-        "index": "apps/man-app/src/index.html",
-        "browser": "apps/man-app/src/main.ts",
+        "outputPath": "dist/apps/main-app",
+        "index": "apps/main-app/src/index.html",
+        "browser": "apps/main-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/man-app/tsconfig.app.json",
+        "tsConfig": "apps/main-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/man-app/public"
+            "input": "apps/main-app/public"
           }
         ],
-        "styles": ["apps/man-app/src/styles.scss"],
+        "styles": ["apps/main-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "man-app:build:production"
+          "buildTarget": "main-app:build:production"
         },
         "development": {
-          "buildTarget": "man-app:build:development"
+          "buildTarget": "main-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "man-app:build"
+        "buildTarget": "main-app:build"
       }
     },
     "lint": {
@@ -74,15 +74,15 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/man-app/jest.config.ts"
+        "jestConfig": "apps/main-app/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "man-app:build",
+        "buildTarget": "main-app:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/man-app/browser",
+        "staticFilePath": "dist/apps/main-app/browser",
         "spa": true
       }
     }
