@@ -1,3 +1,11 @@
-@let joke = joke$ | async;
+@if (this.loading()) {
+  <p>Loading...</p>
+} @else {
+  @if (!this.error()) {
+    <p>{{ this.joke()!.value }}</p>
+  } @else {
+    <p>{{ this.error()!.message }}</p>
+  }
 
-{{joke?.value}}
+}
+<button (click)="loadAnotherJoke()">Load Another Joke</button>
