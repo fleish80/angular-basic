@@ -1,25 +1,22 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { AsyncPipe, JsonPipe } from '@angular/common';
-import { JokeStoreBasicService } from '../services/joke-store-basic/joke-store-basic.service';
+import { JokeStoreNgrxSignalsStore } from '../stores/joke-store-ngrx-signals/joke-store-ngrx-signals.service';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule, AsyncPipe, JsonPipe],
+  imports: [],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
 
-  private jokeStoreBasicService = inject(JokeStoreBasicService);
-  joke = this.jokeStoreBasicService.joke;
-  loading = this.jokeStoreBasicService.loading;
-  error = this.jokeStoreBasicService.error;
+  private jokeStoreNgrxSignalsStore  = inject(JokeStoreNgrxSignalsStore);
+  joke = this.jokeStoreNgrxSignalsStore.joke;
+  loading = this.jokeStoreNgrxSignalsStore.loading;
+  error = this.jokeStoreNgrxSignalsStore.error;
 
   loadAnotherJoke() {
-    this.jokeStoreBasicService.loadJoke();
+    this.jokeStoreNgrxSignalsStore.load();
   }
 
 }
